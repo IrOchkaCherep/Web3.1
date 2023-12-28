@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 pd.set_option('display.max_rows', None)
-#print(sqlite3.sqlite_version)
+
 # создаем базу данных и устанавливаем соединение с ней
 con = sqlite3.connect("book_store.sqlite")
 
@@ -12,12 +12,6 @@ f_damp = open('store.db', 'r', encoding='utf-8-sig')
 damp = f_damp.read()
 # закрываем файл с дампом
 f_damp.close()
-
-# запускаем запросы
-con.executescript(damp)
-
-# сохраняем информацию в базе данных
-con.commit()
 
 # создаем курсор
 cursor = con.cursor()
